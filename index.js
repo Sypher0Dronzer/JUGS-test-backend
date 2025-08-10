@@ -21,20 +21,17 @@ app.use(cors({
 }));
 
 // ✅ Handle preflight for all routes
-app.options("*", cors({
-  origin: ENV_VARS.FRONTEND_LINK,
-  credentials: true
-}));
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", ENV_VARS.FRONTEND_LINK);
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET, POST");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", ENV_VARS.FRONTEND_LINK);
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   res.header("Access-Control-Allow-Methods", "GET, POST");
+//   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   next();
+// });
 
 
 app.use(passport.initialize());
