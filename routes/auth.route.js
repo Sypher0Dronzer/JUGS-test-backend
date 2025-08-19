@@ -1,7 +1,7 @@
 import express from 'express'
 import { authCheck, login, logout, resendOTP, signup, verifyOTP } from '../controllers/auth.controller2.js'
 import { protectRoute } from '../middleware/protectRoute.js'
-
+ 
 const route=express.Router()
 
 route.post('/signup', signup)         // Step 1: signup, send OTP
